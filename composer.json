@@ -1,0 +1,16 @@
+{
+    "name": "adamhebby/php-japi-template",
+    "description": "PHP JSON API Framework",
+    "type": "template",
+    "autoload": {
+        "psr-4": {
+            "JsonApi\\": "src/JsonApi/"
+        }
+    },
+    "require": {
+        "php-di/php-di": "^7.0",
+        "monolog/monolog": "^3.6",
+        "symfony/dotenv": "^7.1",
+        "symfony/cache": "^7.1"
+    }
+}

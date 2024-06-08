@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: docker/
+    container_name: json_api
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - .:/var/www/html:rw
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    container_name: api_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_USER: api_user
+      MYSQL_PASSWORD: api_password
+      MYSQL_ROOT_PASSWORD: api_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db/0-schema.sql:/docker-entrypoint-initdb.d/0-schema.sql:ro
